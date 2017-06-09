@@ -1,5 +1,6 @@
 %----------- Display-- Mode ------------%
-function chonmode
+ct1='Y';
+while ct1== 'Y'
 list=[' please chose one mode you want to change:         '
       '    mode                                 select    '
       'mode 1: Change Wind                       1        '
@@ -82,6 +83,5 @@ list=[' please chose one mode you want to change:         '
               busdata(cl(icl),6)=0;
           end
   end
- end
-          
- 
+ct1=input('Do you Want to change another item? [Y/n] :   ')  
+end

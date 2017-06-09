@@ -1,4 +1,4 @@
-function xetthanhphan
+
 clear all
 clc
 clear
@@ -58,6 +58,8 @@ end
 %--ket thuc datnut--%
 %DE CHUONG TRING CHAY PHU HOP THI NEN CHINH SUA LAI LUOI NUT CHO PHU HOP VOI NHU CAU
 cont='Y';
+it1=0;
+SDong=[];
  while cont == 'Y'
  syms busdata;
  busdata=busdata1;
@@ -66,6 +68,15 @@ lfybus
 lfnewton               % Load flow solution by Gauss-Seidel method
 busout              % Prints the power flow solution on the screen
 lineflow2% form the bus admittance matrix
- cont=input('Do you want to have other case? [Y/n] : ');
+it1=it1+1;
+ldong=length(Dong');
+SDong(:,it1)=Dong';
+ cont=input('Do you want to do another situation? [Y/n] : ');
+ SDong;
  end
-end
+ Dongmax=[];
+ for imax=1:ldong
+     Dongmax(imax,1)=max(SDong(imax,:));
+ end
+ Dongmax;
+ xuatMax
