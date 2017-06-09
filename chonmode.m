@@ -1,15 +1,5 @@
-plgio=input(' nhap vao cac nut la chi co turbin gio (dang mang) [...]:');
-plmt=input(' nhap vap cac nut chi co nang luong mat troi: ');
-pldc=input(' nhap vao cac nut chi co chua dong co may phat: ');
-plpin= input('nhap vao cac nut chi co chua battery: ');
-plhh=input('nhap vao nut co nhieu loai nguon: ');
-%plhh(i) là so thu tu cua nut co chua nguon hon hop%
-nguon=[0 0 0 0 0];
-for lap=1:length(plhh)
-    fprintf('nhap vao thu tu cac nguon tai nut %d\n ',plhh(lap));
-    gtri=input('nhap vao thu tu cong suat cac loai may phat [Pgio Pmt Ppin Pdc Qdc]:\n ');
-    nguon(lap,:)=gtri;
-end
+%----------- Display-- Mode ------------%
+function chonmode
 list=[' please chose one mode you want to change:         '
       '    mode                                 select    '
       'mode 1: Change Wind                       1        '
@@ -19,8 +9,7 @@ list=[' please chose one mode you want to change:         '
       'mode 5: Dont Change                       5        '
       'mode 6: Load                              6        '];
   disp(list);
- cont='Y';
- while cont == 'Y'
+  %--------End Display----------------------------------%
   syms select;
   select =0;
   while select ~=1 & select ~=2 & select ~=3 & select ~= 4 & select ~=5 & select ~=6
@@ -87,13 +76,12 @@ list=[' please chose one mode you want to change:         '
               end
           end    
           %la mang %
-          cl=input('ban muon tat tai o cac nut nao: [....]');
+          cl=input('ban muon tat tai o cac nut nao: [....] :  ');
           for icl=1:length(cl)
               busdata(cl(icl),5)=0;
               busdata(cl(icl),6)=0;
           end
   end
-  cont=input('Do you want to continue? [Y/n]');
  end
           
  

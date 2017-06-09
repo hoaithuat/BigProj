@@ -5,9 +5,14 @@
 SLT = 0;
 fprintf('\n')
 fprintf('                           Line Flow and Losses \n\n')
-fprintf('     --Line--  Power at bus & line flow    --Line loss--  Transformer       Ink\n')
-fprintf('     from  to    kW      kvar     kVA       kW      kvar      tap           A  \n')
-
+fprintf('     --Line--  Power at bus & line flow    --Line loss--    I   Transformer\n')
+fprintf('     from  to    kW      kvar     kVA       kW      kvar    A       tap\n')
+%-------------
+%----ADD--------
+Dong=[];
+syms dem;
+dem =1;
+%----------Add
 for n = 1:nbus
 busprt = 0;
    for L = 1:nbr;
@@ -41,11 +46,15 @@ busprt = 0;
              fprintf('%9.3f', imag(SL)), fprintf('%9.3f', a(L)) % original: fprintf('%9.3f\n', a(L))
              else, fprintf('%9.3f', imag(SL))                   % original: fprintf('%9.3f\n', imag(SL)) 
              end
-             fprintf('               %9.3f\n',333.333*abs(In));
+             %Xuat dong
+             Dong(dem)=abs(577.35*In);
+             dem=dem+1;
+             fprintf('%9.3f\n', 577.35*abs(In));
          else, end
-  end
+   end
 end
 SLT = SLT/2;
 fprintf('   \n'), fprintf('    Total loss                         ')
 fprintf('%9.3f', real(SLT)), fprintf('%9.3f\n', imag(SLT))
 clear Ik In SL SLT Skn Snk
+SDong'
